@@ -1,9 +1,10 @@
 import csv
 import os
 
+import pandas as pd
+
 
 def save_data_to_xlsx(csv_file, xlsx_file):
-    import pandas as pd
     read_file = pd.read_csv(csv_file)
     read_file.to_excel(xlsx_file, index=None, header=True)
 
