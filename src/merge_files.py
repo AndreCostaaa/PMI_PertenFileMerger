@@ -50,16 +50,13 @@ def merge_data_to_result_files(data, results_folder):
         file.create_folder(date_folder)
 
         csv_results_file = os.path.join(date_folder, f"{date_formatted}.csv")
-        xlsx_results_file = os.path.join(date_folder, f"{date_formatted}.xlsx")
+        file.remove_file_if_exists(csv_results_file)
         if os.path.exists(csv_results_file):
             os.remove(csv_results_file)
-
         file.save_data_to_csv(csv_results_file, data[key])
-        file.save_data_to_xlsx(csv_results_file, xlsx_results_file)
 
 
 def main(args):
-
     if len(args) < 2:
         print(f"Usage: {args[0]} [instruction]. eg: {args[0]} all")
         return

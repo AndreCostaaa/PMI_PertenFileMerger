@@ -1,10 +1,9 @@
 import csv
 import os
 
-import pandas as pd
-
 
 def save_data_to_xlsx(csv_file, xlsx_file):
+    import pandas as pd
     read_file = pd.read_csv(csv_file)
     read_file.to_excel(xlsx_file, index=None, header=True)
 
@@ -25,3 +24,8 @@ def get_files_from_directory(path):
 def create_folder(folder_path):
     if not os.path.exists(folder_path):
         os.mkdir(folder_path)
+
+
+def remove_file_if_exists(path):
+    if os.path.exists(path):
+        os.remove(path)
