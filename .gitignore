@@ -1,0 +1,6 @@
+/env
+/Compiled Data
+*dist*
+*build*
+*idea*
+*pycache*

@@ -1,4 +1,4 @@
 @echo off
 title Perten All Files Merger
-.\dist\merge_files.exe all
+.\merge_files.dist\merge_files.exe all
 pause

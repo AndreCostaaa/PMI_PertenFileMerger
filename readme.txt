@@ -7,13 +7,41 @@
 After running the script, a folder called "Compiled Data" will be created, inside, a folder per date will be present
 with the csv file corresponding to that date inside it
 
-If windows blocks the .bat scripts, the scripts in the OutboundMmsPRD Scripts v3.zip folder can be used
-(Don't forget to unzip them)
+Folder path is read from config.json file:
+eg:
+{
+   "folder": "//PPPSSPMPSTD0001/OutboundMmsPRD" 
+}
+
+You can also set a path from your computer:
+eg:
+{
+   "folder": "C:/PertenFiles" 
+}
+
+Places are translated using places.json file
+eg:
+{
+  "122-BU": "T0144",
+  "122-FC": "T0124",
+  "122-OR": "T0134",
+  "232-EM1": "T0570",
+  "270-EM1": "T0580",
+  "920-EM1": "T0872",
+  "020-EM1": "T0874",
+  "350-EM1": "T0615"
+}
 
 (ADVANCED)
-If you have python in your computer, you can create a virtual environment with pandas and openpyxl and run the
-merge_files.py file in src folder.
-This Script will also create the xlsx file and will run faster than the scripts that use the .exe file
-The xlsx file converts the csv file to have the values separated in different columns.
+If you have python in your computer, you can create a virtual environment:
+python -m venv env 
 
-Usage : python merge_files.py <option> option can be 'all', 'chosen' or 'latest' (for: all files, chosen date or latest date)
+Activate the environment (eg in powershell):
+& ./env/Scripts/activate.ps1
+
+Install dependencies:
+pip install pandas
+pip install openpyxl
+
+Run the python file:
+python src/merge_files.py <option> option can be 'all', 'chosen' or 'latest' (for: all files, chosen date or latest date)
